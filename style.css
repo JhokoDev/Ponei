@@ -1,0 +1,229 @@
+/* BASE MOBILE-FIRST STYLES */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f5f0ff;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.container {
+    background: white;
+    padding: 20px; /* Reduced padding for mobile */
+    margin: 20px auto;
+    width: 92%;
+    max-width: 420px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(128, 0, 128, 0.08);
+    border: 1px solid rgba(128, 0, 128, 0.05);
+    box-sizing: border-box;
+}
+
+h1 { 
+    color: #800080; 
+    margin-bottom: 20px; 
+    font-size: 24px; /* Slightly smaller for mobile */
+    letter-spacing: -0.5px;
+}
+
+.input-group {
+    text-align: left;
+    margin-bottom: 12px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: #666;
+    margin-bottom: 4px;
+    margin-left: 4px;
+}
+
+input, select, button {
+    width: 100%;
+    padding: 12px;
+    margin: 0;
+    border-radius: 10px;
+    border: 2px solid #f0f0f0;
+    box-sizing: border-box;
+    font-size: 16px; /* 16px prevents auto-zoom on iOS */
+    transition: all 0.2s ease;
+    outline: none;
+    appearance: none;
+}
+
+input:focus, select:focus {
+    border-color: #800080;
+    background: #fff;
+    box-shadow: 0 0 0 4px rgba(128, 0, 128, 0.1);
+}
+
+button {
+    background: #800080;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    margin-top: 8px;
+    box-shadow: 0 4px 10px rgba(128, 0, 128, 0.15);
+}
+
+button:active {
+    transform: scale(0.96);
+}
+
+.link {
+    color: #800080;
+    cursor: pointer;
+    text-decoration: none;
+    margin-top: 15px;
+    display: inline-block;
+    font-weight: 600;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+/* LISTA DE PONEIS - Responsive Grid */
+.poney-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    justify-content: center;
+    margin: 15px 0;
+    padding: 8px;
+    background: #fcfaff;
+    border-radius: 14px;
+}
+
+.avatar {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 12px;
+    object-fit: cover;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.avatar.selected {
+    border-color: #800080;
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(128, 0, 128, 0.2);
+}
+
+.avatar-grande {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #800080;
+    margin-bottom: 12px;
+}
+
+/* TABS - Mobile Scrollable */
+.tabs {
+    background: #800080;
+    padding: 8px;
+    display: flex;
+    justify-content: flex-start;
+    overflow-x: auto;
+    white-space: nowrap;
+    gap: 8px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+}
+
+.tabs::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+}
+
+.tabs button {
+    width: auto;
+    padding: 8px 16px;
+    margin: 0;
+    background: rgba(255,255,255,0.15);
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.logout-btn { background: #dc3545 !important; }
+
+/* CARTAS */
+#lista-cartas {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.card {
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 12px;
+}
+
+/* MAPA */
+.mapa-wrapper {
+    position: relative;
+    width: 100%;
+    margin-top: 10px;
+    overflow: hidden;
+    border-radius: 12px;
+    touch-action: manipulation;
+}
+
+.ponto {
+    position: absolute;
+    width: 20px; /* Larger touch target for mobile */
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    transform: translate(-50%, -50%); /* Center the point on coordinates */
+}
+
+/* MEDIA QUERIES FOR LARGER SCREENS */
+@media (min-width: 480px) {
+    .container {
+        padding: 30px;
+        margin: 40px auto;
+        border-radius: 24px;
+    }
+
+    h1 { font-size: 28px; }
+
+    .tabs {
+        justify-content: center;
+        overflow-x: visible;
+    }
+
+    .avatar-grande {
+        width: 120px;
+        height: 120px;
+    }
+
+    .poney-list {
+        gap: 12px;
+        padding: 12px;
+    }
+
+    .card {
+        padding: 15px;
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 450px;
+    }
+    
+    #lista-cartas {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
