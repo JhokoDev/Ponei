@@ -10,44 +10,49 @@
 
     <!-- CONTAINER DE CADASTRO -->
     <div class="container" id="cadastro">
-        <h1>Criar Conta</h1>
+        <form id="form-cadastro">
+            <h1>Criar Conta</h1>
+            
+            <div class="input-group">
+                <label>Nome de Usuário</label>
+                <input id="nome" placeholder="Ex: TwilightSparkle" required>
+            </div>
+
+            <div class="input-group">
+                <label>Data de Nascimento</label>
+                <input id="nascimento" placeholder="dd/mm/aaaa" maxlength="10" oninput="formatarData(this)" required>
+            </div>
+
+            <div class="input-group">
+                <label>Gênero</label>
+                <select id="genero" required>
+                    <option value="">Selecione...</option>
+                    <option>Feminino</option>
+                    <option>Masculino</option>
+                    <option>Outro</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label>Senha</label>
+                <input type="password" id="senha" placeholder="Sua senha secreta" required>
+            </div>
+
+            <h3>Escolha seu pônei inicial:</h3>
+            <div class="poney-list">
+                <img src="https://media.wired.com/photos/59337ed17965e75f5f3c8503/3:2/w_2560%2Cc_limit/MLP-Twilight.jpg" class="avatar" onclick="selecionarPoney(this,'Twilight')" alt="Twilight">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcko1WFEG5FIPA6grJXd1cWJAXiSHAQP0LdzVhOdGJqpi-V0b0it6CxiKlAjuldaNIOs3DutSq5MAlWRPmgMXkgBnC9iWvw8Kga-tLL_Bh&s=10" class="avatar" onclick="selecionarPoney(this,'Fluttershy')" alt="Fluttershy">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGk1NmbGDPaUJCLlN4uhOtHeJTsAWeBvh3Eg6_wJ0YIOOnbHjn3vZ4NbVPd8XT1D9i_4l21vlY-Xg4sX_8j5nZ5qZexcBFiDbxyxXq_xZdZQ&s=10" class="avatar" onclick="selecionarPoney(this,'Rainbow')" alt="Rainbow">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrX51t_lIv-XJw9lQHe2lkAWGZm6KBkOwrOIpBtnouBpYVWuQsaNGJvRgkhcnROL70xYvyWXk8IYnGdfxp51X6651Mkn2nq1vQg8R3jAWe&s=10" class="avatar" onclick="selecionarPoney(this,'Rarity')" alt="Rarity">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfsKVElxJR57blusabDhZZgE8RK7COxWgPqowcREHKQ9etkKq3qQT2MfTBAOz0BaqwiXMGaVUsYR5XOHF3mAKRrQxPjIOuhl1ixwRp9JGF&s=10" class="avatar" onclick="selecionarPoney(this,'Applejack')" alt="Applejack">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLcS6NnetzUhMydMsgoVqH--MRvgEEOdM2pB8zBA2XFxGw68DoST-Honi6jydIv-1jm7eHEaLX_DptXWURHIAJ8tr3z4BCihCgEUMnGMpvoQ&s=10" class="avatar" onclick="selecionarPoney(this,'Pinkie')" alt="Pinkie">
+            </div>
+
+            <button type="submit">Cadastrar no Banco</button>
+        </form>
         
-        <div class="input-group">
-            <label>Nome de Usuário</label>
-            <input id="nome" placeholder="Ex: TwilightSparkle">
-        </div>
+        <div id="dados-salvos-db"></div>
 
-        <div class="input-group">
-            <label>Data de Nascimento</label>
-            <input id="nascimento" placeholder="dd/mm/aaaa" maxlength="10" oninput="formatarData(this)">
-        </div>
-
-        <div class="input-group">
-            <label>Gênero</label>
-            <select id="genero">
-                <option value="">Selecione...</option>
-                <option>Feminino</option>
-                <option>Masculino</option>
-                <option>Outro</option>
-            </select>
-        </div>
-
-        <div class="input-group">
-            <label>Senha</label>
-            <input type="password" id="senha" placeholder="Sua senha secreta">
-        </div>
-
-        <h3>Escolha seu pônei inicial:</h3>
-        <div class="poney-list">
-            <img src="https://media.wired.com/photos/59337ed17965e75f5f3c8503/3:2/w_2560%2Cc_limit/MLP-Twilight.jpg" class="avatar" onclick="selecionarPoney(this,'Twilight')" alt="Twilight">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcko1WFEG5FIPA6grJXd1cWJAXiSHAQP0LdzVhOdGJqpi-V0b0it6CxiKlAjuldaNIOs3DutSq5MAlWRPmgMXkgBnC9iWvw8Kga-tLL_Bh&s=10" class="avatar" onclick="selecionarPoney(this,'Fluttershy')" alt="Fluttershy">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGk1NmbGDPaUJCLlN4uhOtHeJTsAWeBvh3Eg6_wJ0YIOOnbHjn3vZ4NbVPd8XT1D9i_4l21vlY-Xg4sX_8j5nZ5qZexcBFiDbxyxXq_xZdZQ&s=10" class="avatar" onclick="selecionarPoney(this,'Rainbow')" alt="Rainbow">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrX51t_lIv-XJw9lQHe2lkAWGZm6KBkOwrOIpBtnouBpYVWuQsaNGJvRgkhcnROL70xYvyWXk8IYnGdfxp51X6651Mkn2nq1vQg8R3jAWe&s=10" class="avatar" onclick="selecionarPoney(this,'Rarity')" alt="Rarity">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfsKVElxJR57blusabDhZZgE8RK7COxWgPqowcREHKQ9etkKq3qQT2MfTBAOz0BaqwiXMGaVUsYR5XOHF3mAKRrQxPjIOuhl1ixwRp9JGF&s=10" class="avatar" onclick="selecionarPoney(this,'Applejack')" alt="Applejack">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLcS6NnetzUhMydMsgoVqH--MRvgEEOdM2pB8zBA2XFxGw68DoST-Honi6jydIv-1jm7eHEaLX_DptXWURHIAJ8tr3z4BCihCgEUMnGMpvoQ&s=10" class="avatar" onclick="selecionarPoney(this,'Pinkie')" alt="Pinkie">
-        </div>
-
-        <button onclick="cadastrar()">Cadastrar</button>
         <p class="link" onclick="mostrarLogin()">Já tenho conta</p>
     </div>
 
@@ -110,5 +115,7 @@
     </div>
 
     <script src="script.js"></script>
+    <script src="db.js"></script>
+    <script src="controller.js"></script>
 </body>
 </html>
